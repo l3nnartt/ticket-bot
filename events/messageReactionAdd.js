@@ -8,8 +8,19 @@ module.exports = {
             return
         }
 
+        console.log(interaction)
+        console.log('-----------------------------------------------------------------------')
+        console.log(reaction)
+
         //Create Ticket
         if (interaction.message.channelId == ticket) {
+
+            message.channel.fetchMessage(MessageID).then(m => {
+                m.reactions.remove(UserID);
+            });
+
+            msg.reactions.resolve('📩').users.remove("ID OR OBJECT OF USER TO REMOVE");
+
             interaction.message.guild.channels
             .create('ticket', {
                 type: 'text',
@@ -20,6 +31,13 @@ module.exports = {
                     message.react('🔒')
                 })
             })
+        }
+
+        if (message.channelId)
+
+
+        if (interaction._emoji.name == '🔒') {
+            interaction.message.channelId
         }
 	},
 };
